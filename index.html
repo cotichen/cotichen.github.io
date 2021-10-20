@@ -90,7 +90,9 @@
             dataType: 'jsonp',
             cache: false,
             success: function(msg) { //这里会返回获取到的数据，并将json转为array了
-                alert(msg);
+                console.log(msg);
+
+                alert(JSON.parse(msg));
             }
         });
     }
