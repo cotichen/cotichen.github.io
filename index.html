@@ -12,10 +12,10 @@
             console.log('statusChangeCallback');
             console.log(response); // The current login status of the person.
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
-
-                let testUrl = "https://graph.facebook.com/me?fields=" + response.authResponse.userID + "&access_token=" + response.authResponse.accessToken;
-                console.log("testUrl");
-                console.log(testUrl);
+                test(response.authResponse.accessToken)
+                    // let testUrl = "https://graph.facebook.com/me?fields=" + response.authResponse.userID + "&access_token=" + response.authResponse.accessToken;
+                    // console.log("testUrl");
+                    // console.log(testUrl);
                 testAPI();
             } else { // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' +
@@ -75,9 +75,24 @@
 
     <div id="status">
     </div>
-
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <!-- Load the JS SDK asynchronously -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 
 </html>
+<script type="text/javascript">
+    // $(document).ready(function() {
+    function test(access_token) {
+        $.ajax({
+            type: 'GET',
+            url: 'https://graph.facebook.com/me?access_token=' + access_token + '&callback=callback',
+            dataType: 'jsonp',
+            cache: false,
+            success: function(msg) { //这里会返回获取到的数据，并将json转为array了
+                alert(msg['error']["type"]);
+            }
+        });
+    }
+    //  });
+</script>
