@@ -12,6 +12,10 @@
             console.log('statusChangeCallback');
             console.log(response); // The current login status of the person.
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
+
+                let testUrl = "https://graph.facebook.com/me?fields=" + response.authResponse.userID + "&access_token=" + response.authResponse.accessToken;
+                console.log("testUrl");
+                console.log(testUrl);
                 testAPI();
             } else { // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' +
@@ -44,13 +48,17 @@
         function testAPI() { // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', function(response) {
+
+
                 let faceUrl = "https://graph.facebook.com/" + response.id + "/picture?type=large"
                 console.log("faceUrl1 = ", faceUrl)
                 if (response && response.picture && response.picture.data) {
                     faceUrl = response.picture.data.url
                     console.log("faceUrl2 = ", faceUrl)
                 }
-
+                let imei = "fb." + response.id;
+                let nickname = response.name;
+                let headImg = faceUrl;
                 console.log('成功登录信息 ', response);
                 console.log('Successful login for: ' + response.name);
                 document.getElementById('status').innerHTML =
