@@ -113,10 +113,14 @@
             url: 'https://domino.ss2007.com:8088/hall/register',
             data: data,
             dataType: 'jsonp',
-            success: function(msg) { //这里会返回获取到的数据，并将json转为array了
+            success: function(data) { //这里会返回获取到的数据，并将json转为array了
                 console.log('返回消息msg');
-                console.log(msg);
-                alert(msg);
+                console.log(data);
+                if (data) {
+                    data = JSON.parse(data)
+                    alert(data);
+                }
+
             }
         });
 
