@@ -114,10 +114,10 @@
             data: data,
             dataType: 'json',
             success: function(data) { //这里会返回获取到的数据，并将json转为array了
-                console.log('返回消息msg');
+                console.log('返回消息msg', typeof(data));
                 console.log(data);
                 if (data) {
-                    data = JSON.parse(data)
+                    data = data
                     alert(data);
                 }
 
