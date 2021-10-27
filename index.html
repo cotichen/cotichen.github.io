@@ -83,11 +83,17 @@
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
 <div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false">
-    </div> <div id="status">
+
+</div>    
+
+    <div id="status">
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
     <!-- Load the JS SDK asynchronously -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v12.0&appId=625402812241931&autoLogAppEvents=1" nonce="idFmqTS5"></script>
 </body>
 
 </html>
@@ -117,7 +123,7 @@
                 console.log('返回消息msg', typeof(data));
                 console.log(data);
                 if (data) {
-                    alert(data.RetCode);
+                    console.log(data.RetCode);
                 }
 
             }
