@@ -1,0 +1,169 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 7.2rem;
+    height: 15.59rem;
+    background: url('../images/bg.jpg') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    font-size: .14rem;
+    position: relative;
+}
+
+.dl-btn,
+.tips,
+.swiper,
+.footer {
+    position: absolute;
+}
+
+.dl-btn {
+    top: 5.45rem;
+    left: 2.2rem;
+}
+
+.dl-btn .download-button {}
+
+.dl-btn .fb_iframe_widget {
+    margin-left: 0.12rem;
+}
+
+.swiper {
+    top: 10.55rem;
+    width: 7.2rem;
+    height: 4.61rem;
+    background: url('../images/swiper/bg.png') no-repeat;
+    background-size: 100% 100%;
+    padding-top: 0.76rem;
+    background-position: .01rem center;
+}
+
+.dl-btn img {
+    width: 2.66rem;
+    height: 0.98rem;
+}
+
+.swiper img {
+    width: 6.5rem;
+    height: 3.2rem;
+}
+
+.swiper-container {
+    width: 6.5rem;
+    border-radius: .64rem;
+    overflow: hidden;
+    height: 3.1rem;
+}
+
+.swiper-slide {
+    text-align: center;
+}
+
+.swiper-pagination {
+    left: 2.4rem;
+    top: 4.3rem;
+}
+
+.swiper-pagination-bullet {
+    width: .28rem;
+    height: .28rem;
+    background: url('../images/swiper/pagination.png') no-repeat;
+    background-size: 100% 100%;
+    opacity: 1;
+    margin-right: .2rem;
+}
+
+.swiper-pagination-bullet-active {
+    background: url('../images/swiper/pagination-active.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.thickdiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    display: none;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+    background: #000;
+    opacity: .7;
+}
+
+.pupRecharge {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 102;
+    margin: -1.78rem 0 0 -2.61rem;
+    width: 5.22rem;
+    height: 3.56rem;
+    background: url(../images/pup_recharge.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.pupRecharge .btnClose {
+    top: -.05rem;
+    right: -.05rem;
+    width: .6rem;
+    height: .61rem;
+    background: url(../images/btn_close_recharge.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.pupRecharge .title {
+    margin: .6rem 0 .3rem;
+    color: #fff5cd;
+    text-align: center;
+    font-weight: 700;
+    font-size: .25rem;
+}
+
+.pupRecharge .title img {
+    height: .4rem;
+}
+
+.pupRecharge .title a {
+    margin-left: .05rem;
+    color: #fe662a;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: .24rem;
+}
+
+.pupRecharge .text {
+    margin: .25rem auto .2rem;
+    color: #26b7b2;
+    text-align: center;
+    font-size: .26rem;
+    line-height: 1.1;
+}
+
+.pupRecharge .text-guide {
+    display: block;
+    margin-top: .1rem;
+    color: #fe662a;
+    text-align: center;
+    text-decoration: underline;
+    font-size: .24rem;
+}
+
+.pupRecharge .btnReceive {
+    display: block;
+    margin: 0 auto;
+    width: 2.48rem;
+    height: .78rem;
+    background: url(../images/btn_receive_pup.png) no-repeat;
+    background-size: 100% 100%;
+}
