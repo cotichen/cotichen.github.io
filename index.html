@@ -1,12 +1,86 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh">
+<!-- Facebook Pixel Code -->
+<script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '804663966831666');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=804663966831666&ev=PageView&noscript=1" /></noscript>
+<!-- End Facebook Pixel Code -->
 
 <head>
-    <title>Facebook Login JavaScript Example</title>
-    <meta charset="UTF-8">
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="facebook-domain-verification" content="3xmplsui0oqw3c4fjqzb42inlbt9u5" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Domino Master and apprentice - www.dominogaming.net</title>
 
-<body>
+    <meta name="description" content="Domino,fafafa,dfdc,slot,bandarQQ。" />
+    <meta name="keywords" content="Domino,fafafa,dfdc,slot,bandarQQ。" />
+    <meta property="og:title" content="Domino Master and apprentice" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="//www.dominogaming.net/style/images/swiper/1.jpg" />
+
+    <link rel="stylesheet" type="text/css" href="style/css/swiper-4.2.2.min.css">
+    <link rel="stylesheet" href="style/css/index.css">
+
+    <script type="text/javascript">
+        (function(pw, ph) {
+            function setFontSize() {
+                var dw = pw;
+                var docEle = document.documentElement;
+                var cw = docEle.clientWidth || document.body.clientWidth;
+                var ch = docEle.clientHeight || document.body.clientHeight;
+                if (cw > ch) {
+                    var dh = ph || 720;
+                    var realw = Math.ceil(dh / ch * cw);
+                    dw = realw > dw ? realw : dw;
+                }
+                var h = dw / 2;
+                cw = cw > dw ? dw : cw;
+                var fz = cw / h * 50;
+                docEle.style.fontSize = fz + 'px';
+                var realfz = ~~(+window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.replace(
+                    'px', '') * 10000) / 10000;
+                if (fz !== realfz) {
+                    docEle.style.fontSize = fz * (fz / realfz) + 'px';
+                }
+            }
+
+            setFontSize();
+
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+                setFontSize();
+            });
+        })(720);
+    </script>
+
     <script>
         function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
             console.log('statusChangeCallback');
@@ -17,12 +91,13 @@
                 // console.log("testUrl");
                 // console.log(testUrl);
                 testAPI();
+                $('.fb-login-button').hide();
+                $('.download-button').show();
             } else { // Not logged into your webpage or we are unable to tell.
-                document.getElementById('status').innerHTML = 'Please log ' +
-                    'into this webpage.';
+                $('.fb-login-button').show();
+                $('.download-button').hide();
             }
         }
-
 
         function checkLoginState() { // Called when a person is finished with the Login Button.
             FB.getLoginStatus(function(response) { // See the onlogin handler
@@ -76,60 +151,159 @@
             });
         }
     </script>
+</head>
 
 
-    <!-- The JS SDK Login Button -->
+<body>
+    <section>
+        <div class="wrapper">
 
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
-<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();">
+            <div class="dl-btn">
+                <a href="https://dl.dominogaming.net/domino.apk" class="download-button">
+                    <img src="style/images/dl-btn.png" alt="">
+                </a>
 
-</div>    
+                <!-- The JS SDK Login Button -->
+                <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();">
+                    <a class="fb_button" onlogin="checkLoginState();">
+                        <img src=" style/images/Facebook-btn.png " alt=" ">
+                    </a>
+                </div>
 
-    <div id="status">
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+                <!-- <div class="fb-login-button " data-width="200 " data-size="large " data-button-type="login_with " data-layout="rounded " data-auto-logout-link="false " data-use-continue-as="true " onlogin="checkLoginState(); "></div> -->
+
+            </div>
+            <div class="swiper ">
+                <div class="swiper-container ">
+                    <div class="swiper-wrapper ">
+                        <div class="swiper-slide "><img src="style/images/swiper/1.jpg "></div>
+                        <div class="swiper-slide "><img src="style/images/swiper/2.jpg "></div>
+                        <div class="swiper-slide "><img src="style/images/swiper/3.jpg "></div>
+                        <div class="swiper-slide "><img src="style/images/swiper/4.jpg "></div>
+                        <div class="swiper-slide "><img src="style/images/swiper/5.jpg "></div>
+                    </div>
+
+                </div>
+
+                <div class="swiper-pagination "></div>
+            </div>
+
+        </div>
+        <a class="nav_btn nav_btn3 text3 active " href="javascript:showCodeDiv() ">222</a>
+        <article>
+            <div id="thickdiv " class="thickdiv " style="display:none; "></div>
+            <div id="thickdiv2 " class="thickdiv " style="z-index:120;display:none; "></div>
+            <div id="codeDiv " class="pupRecharge " style="display:none; ">
+                <a class="pa btnClose " href="javascript:hideCodeDiv() "></a>
+                <p class="title ">Bonus kode：<img src="static/picture/txt_recharge.png ">
+                    <a id="myExchangeCode " data-clipboard-text="higgsdomino " href="javascript:void(0) ">salin</a>
+                </p>
+                <p class="text ">Setelah salin kode bonus<br>login untuk menukar
+                    <a class="text-guide " onclick="showGuideDiv() ">Bagaimana caranya?</a>
+                </p>
+
+                <a class="btnReceive " href="javascript:hideCodeDiv() "></a>
+            </div>
+            <!--礼包引导_弹框-->
+            <div class="gift-guidance " id="giftGuide " style="z-index:121;display: none; ">
+                <a class="pa gift-colseBtn " href="javascript:hideGuideDiv() "></a>
+            </div>
+
+        </article>
+    </section>
+    <script type="text/javascript " src="style/js/jquery-1.11.3.min.js "></script>
     <!-- Load the JS SDK asynchronously -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script async defer crossorigin="anonymous " src="https://connect.facebook.net/en_US/sdk.js "></script>
+    <script type="text/javascript " src="style/js/swiper-4.2.2.min.js "></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            }
+        });
+    </script>
+    <script type="text/javascript ">
+        $(document).ready(function() {
+            $('.fb-login-button').hide();
+            $('.download-button').hide();
+        });
 
-    <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v12.0&appId=625402812241931&autoLogAppEvents=1" nonce="idFmqTS5"></script>
+        function test(access_token) {
+            $.ajax({
+                type: 'GET',
+                url: 'https://graph.facebook.com/me?access_token=' + access_token + '&callback=callback',
+                dataType: 'jsonp',
+                cache: false,
+                success: function(msg) { //这里会返回获取到的数据，并将json转为array了
+                    console.log('返回消息msg');
+                    console.log(msg);
+                    alert(msg);
+                }
+            });
+        }
+
+        function test1(data) {
+            $.ajax({
+                type: 'POST',
+                url: 'https://domino.ss2007.com:8088/hall/register',
+                data: data,
+                dataType: 'json',
+                success: function(data) { //这里会返回获取到的数据，并将json转为array了
+                    console.log('返回消息msg', typeof(data));
+                    console.log(data);
+                    if (data) {
+                        console.log(data.RetCode);
+                    }
+
+                }
+            });
+
+        }
+
+        function showCodeDiv() {
+            $("#codeDiv ").show();
+            $("#thickdiv ").show();
+        };
+
+        function hideCodeDiv() {
+            $("#codeDiv ").hide();
+            $("#thickdiv ").hide();
+        };
+
+        function downloadGoo() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.neptune.domino ";
+        };
+
+        function downloadGW() {
+            window.location.href = "https://download.neptunegame.com/download/Domino_V1760.apk ";
+        };
+
+        function downloadIos() {
+            window.location.href = "https://itunes.apple.com/cn/app/id1456356688 ";
+        }
+
+        $(".nav_btn ").click(function() {
+            $(this).siblings('a').removeClass('active');
+            $(this).addClass('active');
+        })
+
+
+        function showGuideDiv() {
+            $("#thickdiv2 ").show();
+            $("#giftGuide ").show();
+        }
+
+        function hideGuideDiv() {
+            $("#thickdiv2 ").hide();
+            $("#giftGuide ").hide();
+        }
+    </script>
 </body>
 
 </html>
-<script type="text/javascript">
-    // $(document).ready(function() {
-    function test(access_token) {
-        $.ajax({
-            type: 'GET',
-            url: 'https://graph.facebook.com/me?access_token=' + access_token + '&callback=callback',
-            dataType: 'jsonp',
-            cache: false,
-            success: function(msg) { //这里会返回获取到的数据，并将json转为array了
-                console.log('返回消息msg');
-                console.log(msg);
-                alert(msg);
-            }
-        });
-    }
-
-    function test1(data) {
-        $.ajax({
-            type: 'POST',
-            url: 'https://domino.ss2007.com:8088/hall/register',
-            data: data,
-            dataType: 'json',
-            success: function(data) { //这里会返回获取到的数据，并将json转为array了
-                console.log('返回消息msg', typeof(data));
-                console.log(data);
-                if (data) {
-                    console.log(data.RetCode);
-                }
-
-            }
-        });
-
-    }
-
-    //  });
-</script>
