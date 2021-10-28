@@ -87,7 +87,7 @@
             console.log(response); // The current login status of the person.
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
                 // test(response.authResponse.accessToken)
-                // let testUrl = "https://graph.facebook.com/me?fields=" + response.authResponse.userID + "&access_token=" + response.authResponse.accessToken;
+                // let testUrl ="https://graph.facebook.com/me?fields=" + response.authResponse.userID +"&access_token=" + response.authResponse.accessToken;
                 // console.log("testUrl");
                 // console.log(testUrl);
                 testAPI();
@@ -126,10 +126,10 @@
 
 
                 let faceUrl = "https://graph.facebook.com/" + response.id + "/picture?type=large"
-                console.log("faceUrl1 = ", faceUrl)
+                console.log("faceUrl1 =", faceUrl)
                 if (response && response.picture && response.picture.data) {
                     faceUrl = response.picture.data.url
-                    console.log("faceUrl2 = ", faceUrl)
+                    console.log("faceUrl2 =", faceUrl)
                 }
                 let imei = "fb." + response.id;
                 let nickname = response.name;
@@ -165,56 +165,56 @@
 
                 <!-- The JS SDK Login Button -->
                 <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();">
-                    <a class="fb_button" onlogin="checkLoginState();">
-                        <img src=" style/images/Facebook-btn.png " alt=" ">
+                    <a class="fb_button" href="javascript:checkLoginState()">
+                        <img src=" style/images/Facebook-btn.png" alt="">
                     </a>
                 </div>
 
-                <!-- <div class="fb-login-button " data-width="200 " data-size="large " data-button-type="login_with " data-layout="rounded " data-auto-logout-link="false " data-use-continue-as="true " onlogin="checkLoginState(); "></div> -->
+                <!-- <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();"></div> -->
 
             </div>
-            <div class="swiper ">
-                <div class="swiper-container ">
-                    <div class="swiper-wrapper ">
-                        <div class="swiper-slide "><img src="style/images/swiper/1.jpg "></div>
-                        <div class="swiper-slide "><img src="style/images/swiper/2.jpg "></div>
-                        <div class="swiper-slide "><img src="style/images/swiper/3.jpg "></div>
-                        <div class="swiper-slide "><img src="style/images/swiper/4.jpg "></div>
-                        <div class="swiper-slide "><img src="style/images/swiper/5.jpg "></div>
+            <div class="swiper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="style/images/swiper/1.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/2.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/3.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/4.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/5.jpg"></div>
                     </div>
 
                 </div>
 
-                <div class="swiper-pagination "></div>
+                <div class="swiper-pagination"></div>
             </div>
 
         </div>
-        <a class="nav_btn nav_btn3 text3 active " href="javascript:showCodeDiv() ">222</a>
+        <a class="nav_btn nav_btn3 text3 active" href="javascript:showCodeDiv()">222</a>
         <article>
-            <div id="thickdiv " class="thickdiv " style="display:none; "></div>
-            <div id="thickdiv2 " class="thickdiv " style="z-index:120;display:none; "></div>
-            <div id="codeDiv " class="pupRecharge " style="display:none; ">
-                <a class="pa btnClose " href="javascript:hideCodeDiv() "></a>
-                <p class="title ">Bonus kode：<img src="static/picture/txt_recharge.png ">
-                    <a id="myExchangeCode " data-clipboard-text="higgsdomino " href="javascript:void(0) ">salin</a>
+            <div id="thickdiv" class="thickdiv" style="display:none;"></div>
+            <div id="thickdiv2" class="thickdiv" style="z-index:120;display:none;"></div>
+            <div id="codeDiv" class="pupRecharge" style="display:none;">
+                <a class="pa btnClose" href="javascript:hideCodeDiv()"></a>
+                <p class="title">Bonus kode：<img src="static/picture/txt_recharge.png">
+                    <a id="myExchangeCode" data-clipboard-text="higgsdomino" href="javascript:void(0)">salin</a>
                 </p>
-                <p class="text ">Setelah salin kode bonus<br>login untuk menukar
-                    <a class="text-guide " onclick="showGuideDiv() ">Bagaimana caranya?</a>
+                <p class="text">Setelah salin kode bonus<br>login untuk menukar
+                    <a class="text-guide" onclick="showGuideDiv()">Bagaimana caranya?</a>
                 </p>
 
-                <a class="btnReceive " href="javascript:hideCodeDiv() "></a>
+                <a class="btnReceive" href="javascript:hideCodeDiv()"></a>
             </div>
             <!--礼包引导_弹框-->
-            <div class="gift-guidance " id="giftGuide " style="z-index:121;display: none; ">
-                <a class="pa gift-colseBtn " href="javascript:hideGuideDiv() "></a>
+            <div class="gift-guidance" id="giftGuide" style="z-index:121;display: none;">
+                <a class="pa gift-colseBtn" href="javascript:hideGuideDiv()"></a>
             </div>
 
         </article>
     </section>
-    <script type="text/javascript " src="style/js/jquery-1.11.3.min.js "></script>
+    <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
     <!-- Load the JS SDK asynchronously -->
-    <script async defer crossorigin="anonymous " src="https://connect.facebook.net/en_US/sdk.js "></script>
-    <script type="text/javascript " src="style/js/swiper-4.2.2.min.js "></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script type="text/javascript" src="style/js/swiper-4.2.2.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             loop: true,
@@ -228,7 +228,7 @@
             }
         });
     </script>
-    <script type="text/javascript ">
+    <script type="text/javascript">
         $(document).ready(function() {
             $('.fb-login-button').hide();
             $('.download-button').hide();
@@ -267,41 +267,41 @@
         }
 
         function showCodeDiv() {
-            $("#codeDiv ").show();
-            $("#thickdiv ").show();
+            $("#codeDiv").show();
+            $("#thickdiv").show();
         };
 
         function hideCodeDiv() {
-            $("#codeDiv ").hide();
-            $("#thickdiv ").hide();
+            $("#codeDiv").hide();
+            $("#thickdiv").hide();
         };
 
         function downloadGoo() {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.neptune.domino ";
+            window.location.href = "https://play.google.com/store/apps/details?id=com.neptune.domino";
         };
 
         function downloadGW() {
-            window.location.href = "https://download.neptunegame.com/download/Domino_V1760.apk ";
+            window.location.href = "https://download.neptunegame.com/download/Domino_V1760.apk";
         };
 
         function downloadIos() {
-            window.location.href = "https://itunes.apple.com/cn/app/id1456356688 ";
+            window.location.href = "https://itunes.apple.com/cn/app/id1456356688";
         }
 
-        $(".nav_btn ").click(function() {
+        $(".nav_btn").click(function() {
             $(this).siblings('a').removeClass('active');
             $(this).addClass('active');
         })
 
 
         function showGuideDiv() {
-            $("#thickdiv2 ").show();
-            $("#giftGuide ").show();
+            $("#thickdiv2").show();
+            $("#giftGuide").show();
         }
 
         function hideGuideDiv() {
-            $("#thickdiv2 ").hide();
-            $("#giftGuide ").hide();
+            $("#thickdiv2").hide();
+            $("#giftGuide").hide();
         }
     </script>
 </body>
