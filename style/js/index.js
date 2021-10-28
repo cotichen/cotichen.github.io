@@ -1,10 +1,8 @@
 $(document).ready(function() {
     $('.fb-login-button').hide();
     $('.logged').hide();
-    this.Request = utils.getRequest();
 
 });
-
 
 $(window).load(function() {
     $('.loader-wrapper').hide();
@@ -52,10 +50,6 @@ function statusChangeCallback(response) { // Called with the results from FB.get
     console.log('statusChangeCallback');
     console.log(response); // The current login status of the person.
     if (response.status === 'connected') { // Logged into your webpage and Facebook.
-        // test(response.authResponse.accessToken)
-        // let testUrl ="https://graph.facebook.com/me?fields=" + response.authResponse.userID +"&access_token=" + response.authResponse.accessToken;
-        // console.log("testUrl");
-        // console.log(testUrl);
         FacebookAPI();
         $('.fb-login-button').hide();
         $('.logged').show();
@@ -97,31 +91,11 @@ function downloadAndroidUrl() {
 function fbLogin() {
     FB.login(function(response) {
         statusChangeCallback(response); // Returns the login status.
-        //     if (response.authResponse) {
-        //         console.log('Welcome!  Fetching your information.... ');
-        //         //console.log(response); // dump complete info
-        //         access_token = response.authResponse.accessToken; //get access token
-        //         user_id = response.authResponse.userID; //get FB UID
-
-        //         FB.api('/me', function(response) {
-        //             user_email = response.email; //get user email
-        //             // you can store this data into your database             
-        //         });
-
-        //     } else {
-        //         //user hit cancel button
-        //         console.log('User cancelled login or did not fully authorize.');
-
-        //     }
-        // }, {
-        //     scope: 'publish_stream,email'
     });
 }
 
 function FacebookAPI() { // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-
         let faceUrl = "https://graph.facebook.com/" + response.id + "/picture?type=large"
         console.log("faceUrl1 =", faceUrl)
         if (response && response.picture && response.picture.data) {
@@ -131,11 +105,8 @@ function FacebookAPI() { // Testing Graph API after login.  See statusChangeCall
         let imei = "fb." + response.id;
         let nickname = response.name;
         let headImg = faceUrl;
-        console.log('成功登录信息 ', response);
         console.log('Successful login for: ' + response.name);
-        // document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
-
-
+        this.Request = utils.getRequest();
         if (this.Request) {
             let teacherId = this.Request.teacherId;
             if (!teacherId || utils.isBlank(teacherId))
