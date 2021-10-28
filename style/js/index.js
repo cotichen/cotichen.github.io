@@ -1,3 +1,11 @@
+const H5Url = 'https://www.dominogaming.net/game/';
+const DownloadAndroidUrl = 'https://dl.dominogaming.net/domino.apk';
+const FacebookAPPId = '912378863044075';
+const FacebookVersion = 'v12.0';
+const PartnerID = '30002';
+const Version = '1';
+const RegisterUrl = 'https://domino.ss2007.com:8088/hall/register';
+
 $(document).ready(function() {
     $('.fb-login-button').hide();
     $('.logged').hide();
@@ -68,10 +76,10 @@ function checkLoginState() { // Called when a person is finished with the Login 
 
 window.fbAsyncInit = function() {
     FB.init({
-        appId: '912378863044075',
+        appId: FacebookAPPId,
         cookie: true, // Enable cookies to allow the server to access the session.
         xfbml: true, // Parse social plugins on this webpage.
-        version: 'v12.0' // Use this Graph API version for this call.
+        version: FacebookVersion // Use this Graph API version for this call.
     });
 
 
@@ -81,11 +89,11 @@ window.fbAsyncInit = function() {
 };
 
 function h5Url() {
-    window.location.href = "https://www.dominogaming.net/game/";
+    window.location.href = H5Url;
 };
 
 function downloadAndroidUrl() {
-    window.location.href = "https://dl.dominogaming.net/domino.apk";
+    window.location.href = DownloadAndroidUrl;
 };
 
 function fbLogin() {
@@ -116,8 +124,8 @@ function FacebookAPI() { // Testing Graph API after login.  See statusChangeCall
                 "IMei": imei,
                 "NickName": nickname,
                 "FaceUrl": headImg, //escape(headImg),
-                "PartnerID": 30002,
-                "Version": 1,
+                "PartnerID": PartnerID,
+                "Version": Version,
                 "TeacherID": teacherId,
             };
             register(model)
@@ -129,7 +137,7 @@ function FacebookAPI() { // Testing Graph API after login.  See statusChangeCall
 
 function register(model) {
     //调用接口
-    var apiUrl = 'https://domino.ss2007.com:8088/hall/register';
+    var apiUrl = RegisterUrl;
 
     $.ajax({
         type: "post", //使用提交的方法 post、get
