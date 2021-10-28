@@ -92,10 +92,13 @@
                 // console.log(testUrl);
                 testAPI();
                 $('.fb-login-button').hide();
-                $('.download-button').show();
+                $('.logged').show();
             } else { // Not logged into your webpage or we are unable to tell.
-                $('.fb-login-button').show();
-                $('.download-button').hide();
+                // $('.fb-login-button').show();
+                // $('.logged').hide();
+                $('.fb-login-button').hide();
+                $('.logged').show();
+
             }
         }
 
@@ -120,7 +123,15 @@
             });
         };
 
-        function fb_login() {
+        function h5Url() {
+            window.location.href = "https://www.dominogaming.net/game/";
+        };
+
+        function downloadAndroidUrl() {
+            window.location.href = "https://dl.dominogaming.net/domino.apk";
+        };
+
+        function fbLogin() {
             FB.login(function(response) {
                 statusChangeCallback(response); // Returns the login status.
                 //     if (response.authResponse) {
@@ -181,23 +192,22 @@
     <section>
         <div class="wrapper">
 
-            <div class="dl-btn">
-                <a href="https://dl.dominogaming.net/domino.apk" class="download-button">
+            <div class="button">
+
+                <a href="javascript:h5Url()" class="logged h5-button">
+                    <img src="style/images/h5-btn.png" alt="">
+                </a>
+
+                <a href="javascript:downloadAndroidUrl()" class="logged dl-button">
                     <img src="style/images/dl-btn.png" alt="">
                 </a>
 
                 <!-- The JS SDK Login Button -->
-                <!-- <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();">
-                    <a class="fb_button">
-                        <img src="style/images/Facebook-btn.png" alt="">
-                    </a>
-                </div> -->
                 <div class="fb-login-button">
-                    <a href="javascript:fb_login();">
+                    <a href="javascript:fbLogin();">
                         <img src="style/images/Facebook-btn.png" style="border: 0;" alt="">
                     </a>
                 </div>
-                <!-- <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();"></div> -->
 
             </div>
             <div class="swiper">
@@ -216,26 +226,21 @@
             </div>
 
         </div>
-        <a class="nav_btn nav_btn3 text3 active" href="javascript:showCodeDiv()">222</a>
+
         <article>
-            <div id="thickdiv" class="thickdiv" style="display:none;"></div>
-            <div id="thickdiv2" class="thickdiv" style="z-index:120;display:none;"></div>
-            <div id="codeDiv" class="pupRecharge" style="display:none;">
-                <a class="pa btnClose" href="javascript:hideCodeDiv()"></a>
-                <p class="title">Bonus kode：<img src="static/picture/txt_recharge.png">
-                    <a id="myExchangeCode" data-clipboard-text="higgsdomino" href="javascript:void(0)">salin</a>
-                </p>
-                <p class="text">Setelah salin kode bonus<br>login untuk menukar
-                    <a class="text-guide" onclick="showGuideDiv()">Bagaimana caranya?</a>
-                </p>
+            <div id="shadowDiv" class="shadowDiv" style="display:none;"></div>
+            <div id="popupDiv" class="popupDiv" style="display:none;">
+                <a class="btnClose" href="javascript:hidePopup()"></a>
+                <p class="title">
 
-                <a class="btnReceive" href="javascript:hideCodeDiv()"></a>
-            </div>
-            <!--礼包引导_弹框-->
-            <div class="gift-guidance" id="giftGuide" style="z-index:121;display: none;">
-                <a class="pa gift-colseBtn" href="javascript:hideGuideDiv()"></a>
-            </div>
+                    <img class="icon-status" src="">
+                    <span class="title-status"></span>
 
+                </p>
+                <p class="text">
+
+                </p>
+            </div>
         </article>
     </section>
     <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
@@ -258,7 +263,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.fb-login-button').hide();
-            $('.download-button').hide();
+            $('.logged').hide();
         });
 
         function test(access_token) {
@@ -285,51 +290,33 @@
                     console.log('返回消息msg', typeof(data));
                     console.log(data);
                     if (data) {
-                        console.log(data.RetCode);
+                        if (data.RetCode == 1) {
+                            $('.icon-status').attr('src', 'style/images/icon_status_success.png');
+                            $('.title-status').html('Selamat, pengikatan berhasil!');
+                            $('.text').html('Hadiah yang relevan telah didistribusikan ke akun game Anda, Anda dapat memeriksanya di dalam game!')
+                            showPopup()
+                            return;
+                        }
                     }
-
+                    $('.icon-status').attr('src', 'style/images/icon_status_fail.png');
+                    $('.title-status').html('Binding gagal');
+                    $('.text').html('Silakan masuk ke game untuk memeriksa apakah pemain lain telah terikat. Atau hubungi staf kami!')
+                    showPopup()
+                    return;
                 }
             });
 
         }
 
-        function showCodeDiv() {
-            $("#codeDiv").show();
-            $("#thickdiv").show();
+        function showPopup() {
+            $("#popupDiv").show();
+            $("#shadowDiv").show();
         };
 
-        function hideCodeDiv() {
-            $("#codeDiv").hide();
-            $("#thickdiv").hide();
+        function hidePopup() {
+            $("#popupDiv").hide();
+            $("#shadowDiv").hide();
         };
-
-        function downloadGoo() {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.neptune.domino";
-        };
-
-        function downloadGW() {
-            window.location.href = "https://download.neptunegame.com/download/Domino_V1760.apk";
-        };
-
-        function downloadIos() {
-            window.location.href = "https://itunes.apple.com/cn/app/id1456356688";
-        }
-
-        $(".nav_btn").click(function() {
-            $(this).siblings('a').removeClass('active');
-            $(this).addClass('active');
-        })
-
-
-        function showGuideDiv() {
-            $("#thickdiv2").show();
-            $("#giftGuide").show();
-        }
-
-        function hideGuideDiv() {
-            $("#thickdiv2").hide();
-            $("#giftGuide").hide();
-        }
     </script>
 </body>
 
