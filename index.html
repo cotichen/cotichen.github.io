@@ -47,6 +47,10 @@
     <meta property="og:description" content="" />
     <meta property="og:image" content="//www.dominogaming.net/style/images/swiper/1.jpg" />
 
+    <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
+    <!-- Load the JS SDK asynchronously -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style/css/swiper-4.2.2.min.css">
     <link rel="stylesheet" href="style/css/index.css">
 
@@ -81,117 +85,27 @@
         })(720);
     </script>
 
-    <script>
-        function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
-            console.log('statusChangeCallback');
-            console.log(response); // The current login status of the person.
-            if (response.status === 'connected') { // Logged into your webpage and Facebook.
-                // test(response.authResponse.accessToken)
-                // let testUrl ="https://graph.facebook.com/me?fields=" + response.authResponse.userID +"&access_token=" + response.authResponse.accessToken;
-                // console.log("testUrl");
-                // console.log(testUrl);
-                testAPI();
-                $('.fb-login-button').hide();
-                $('.logged').show();
-            } else { // Not logged into your webpage or we are unable to tell.
-                // $('.fb-login-button').show();
-                // $('.logged').hide();
-                $('.fb-login-button').hide();
-                $('.logged').show();
-
-            }
-        }
-
-        function checkLoginState() { // Called when a person is finished with the Login Button.
-            FB.getLoginStatus(function(response) { // See the onlogin handler
-                statusChangeCallback(response);
-            });
-        }
-
-
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '912378863044075',
-                cookie: true, // Enable cookies to allow the server to access the session.
-                xfbml: true, // Parse social plugins on this webpage.
-                version: 'v12.0' // Use this Graph API version for this call.
-            });
-
-
-            FB.getLoginStatus(function(response) { // Called after the JS SDK has been initialized.
-                statusChangeCallback(response); // Returns the login status.
-            });
-        };
-
-        function h5Url() {
-            window.location.href = "https://www.dominogaming.net/game/";
-        };
-
-        function downloadAndroidUrl() {
-            window.location.href = "https://dl.dominogaming.net/domino.apk";
-        };
-
-        function fbLogin() {
-            FB.login(function(response) {
-                statusChangeCallback(response); // Returns the login status.
-                //     if (response.authResponse) {
-                //         console.log('Welcome!  Fetching your information.... ');
-                //         //console.log(response); // dump complete info
-                //         access_token = response.authResponse.accessToken; //get access token
-                //         user_id = response.authResponse.userID; //get FB UID
-
-                //         FB.api('/me', function(response) {
-                //             user_email = response.email; //get user email
-                //             // you can store this data into your database             
-                //         });
-
-                //     } else {
-                //         //user hit cancel button
-                //         console.log('User cancelled login or did not fully authorize.');
-
-                //     }
-                // }, {
-                //     scope: 'publish_stream,email'
-            });
-        }
-
-        function testAPI() { // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-
-
-                let faceUrl = "https://graph.facebook.com/" + response.id + "/picture?type=large"
-                console.log("faceUrl1 =", faceUrl)
-                if (response && response.picture && response.picture.data) {
-                    faceUrl = response.picture.data.url
-                    console.log("faceUrl2 =", faceUrl)
-                }
-                let imei = "fb." + response.id;
-                let nickname = response.name;
-                let headImg = faceUrl;
-                console.log('成功登录信息 ', response);
-                console.log('Successful login for: ' + response.name);
-                // document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
-                let data = {
-                    IMei: imei,
-                    NickName: nickname,
-                    FaceUrl: headImg,
-                    PartnerID: 30002,
-                    Version: 1,
-                    TeacherID: 1075283
-                }
-                test1(data)
-
-            });
-        }
-    </script>
 </head>
 
 
 <body>
+    <div class="loader-wrapper">
+        <div class="sk-grid">
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+            <div class="sk-grid-cube"></div>
+        </div>
+
+    </div>
+
     <section>
         <div class="wrapper">
-
             <div class="button">
 
                 <a href="javascript:h5Url()" class="logged h5-button">
@@ -219,9 +133,7 @@
                         <div class="swiper-slide"><img src="style/images/swiper/4.jpg"></div>
                         <div class="swiper-slide"><img src="style/images/swiper/5.jpg"></div>
                     </div>
-
                 </div>
-
                 <div class="swiper-pagination"></div>
             </div>
 
@@ -232,92 +144,19 @@
             <div id="popupDiv" class="popupDiv" style="display:none;">
                 <a class="btnClose" href="javascript:hidePopup()"></a>
                 <p class="title">
-
                     <img class="icon-status" src="">
                     <span class="title-status"></span>
-
                 </p>
                 <p class="text">
-
                 </p>
             </div>
         </article>
     </section>
-    <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
-    <!-- Load the JS SDK asynchronously -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
     <script type="text/javascript" src="style/js/swiper-4.2.2.min.js"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.fb-login-button').hide();
-            $('.logged').hide();
-        });
+    <script type="text/javascript" src="style/js/common/util.js"></script>
+    <script type="text/javascript" src="style/js/index.js"></script>
 
-        function test(access_token) {
-            $.ajax({
-                type: 'GET',
-                url: 'https://graph.facebook.com/me?access_token=' + access_token + '&callback=callback',
-                dataType: 'jsonp',
-                cache: false,
-                success: function(msg) { //这里会返回获取到的数据，并将json转为array了
-                    console.log('返回消息msg');
-                    console.log(msg);
-                    alert(msg);
-                }
-            });
-        }
-
-        function test1(data) {
-            $.ajax({
-                type: 'POST',
-                url: 'https://domino.ss2007.com:8088/hall/register',
-                data: data,
-                dataType: 'json',
-                success: function(data) { //这里会返回获取到的数据，并将json转为array了
-                    console.log('返回消息msg', typeof(data));
-                    console.log(data);
-                    if (data) {
-                        if (data.RetCode == 1) {
-                            $('.icon-status').attr('src', 'style/images/icon_status_success.png');
-                            $('.title-status').html('Selamat, pengikatan berhasil!');
-                            $('.text').html('Hadiah yang relevan telah didistribusikan ke akun game Anda, Anda dapat memeriksanya di dalam game!')
-                            showPopup()
-                            return;
-                        }
-                    }
-                    $('.icon-status').attr('src', 'style/images/icon_status_fail.png');
-                    $('.title-status').html('Binding gagal');
-                    $('.text').html('Silakan masuk ke game untuk memeriksa apakah pemain lain telah terikat. Atau hubungi staf kami!')
-                    showPopup()
-                    return;
-                }
-            });
-
-        }
-
-        function showPopup() {
-            $("#popupDiv").show();
-            $("#shadowDiv").show();
-        };
-
-        function hidePopup() {
-            $("#popupDiv").hide();
-            $("#shadowDiv").hide();
-        };
-    </script>
 </body>
 
 </html>
