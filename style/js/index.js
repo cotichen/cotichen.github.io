@@ -7,7 +7,7 @@ const Version = '1';
 const RegisterUrl = 'https://domino.ss2007.com:8088/hall/register';
 
 $(document).ready(function() {
-    $('.fb-login-button').show();
+    $('.fb-login-button').hide();
     $('.logged').hide();
     $('.loader-wrapper').hide();
     $('html, section').css('visibility', 'visible');
