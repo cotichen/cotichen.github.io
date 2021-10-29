@@ -9,6 +9,11 @@ const RegisterUrl = 'https://domino.ss2007.com:8088/hall/register';
 $(document).ready(function() {
     $('.fb-login-button').hide();
     $('.logged').hide();
+});
+
+$(window).load(function() {
+    $('.loader-wrapper').hide();
+    $('html, section').css('visibility', 'visible');
 
     window.fbAsyncInit = function() {
         FB.init({
@@ -20,11 +25,6 @@ $(document).ready(function() {
 
         checkLoginState();
     };
-});
-
-$(window).load(function() {
-    $('.loader-wrapper').hide();
-    $('html, section').css('visibility', 'visible');
 });
 
 
