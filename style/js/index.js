@@ -7,24 +7,13 @@ const Version = '1';
 const RegisterUrl = 'https://domino.ss2007.com:8088/hall/register';
 
 $(document).ready(function() {
-    $('.fb-login-button').hide();
+    $('.fb-login-button').show();
     $('.logged').hide();
 });
 
 $(window).load(function() {
     $('.loader-wrapper').hide();
     $('html, section').css('visibility', 'visible');
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: FacebookAPPId,
-            cookie: true, // Enable cookies to allow the server to access the session.
-            xfbml: true, // Parse social plugins on this webpage.
-            version: FacebookVersion // Use this Graph API version for this call.
-        });
-
-        checkLoginState();
-    };
 });
 
 
@@ -93,12 +82,23 @@ function h5Url() {
 function downloadAndroidUrl() {
     window.location.href = DownloadAndroidUrl;
 };
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: FacebookAPPId,
+        cookie: true, // Enable cookies to allow the server to access the session.
+        xfbml: true, // Parse social plugins on this webpage.
+        version: FacebookVersion // Use this Graph API version for this call.
+    });
+
+    checkLoginState();
+};
 
 function fbLogin() {
     FB.login(function(response) {
         statusChangeCallback(response); // Returns the login status.
     });
 }
+
 
 function FacebookAPI() { // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     FB.api('/me', function(response) {
