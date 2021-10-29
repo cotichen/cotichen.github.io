@@ -82,16 +82,35 @@ function h5Url() {
 function downloadAndroidUrl() {
     window.location.href = DownloadAndroidUrl;
 };
-window.fbAsyncInit = function() {
-    FB.init({
-        appId: FacebookAPPId,
-        cookie: true, // Enable cookies to allow the server to access the session.
-        xfbml: true, // Parse social plugins on this webpage.
-        version: FacebookVersion // Use this Graph API version for this call.
-    });
 
-    checkLoginState();
-};
+function initializeFacebookSdk() {
+
+    /* Asynchronous flow: if the global 'FB' variable is still undefined,
+       then the facebook script hasn't loaded yet, in that case, provide
+       a global callback that will be called by the facebook code. If the 
+       variable is already present, just call the code right away and forget
+       about the callback. */
+    if (window.FB === undefined) {
+        console.log('FB undefined -> provide callback');
+        window.fbAsyncInit = function() {
+            initialize();
+        };
+    } else {
+        console.log('FB defined -> call init right away');
+        initialize();
+    }
+
+    function initialize() {
+        window.FB.init({
+            appId: FacebookAPPId,
+            cookie: true, // Enable cookies to allow the server to access the session.
+            xfbml: true, // Parse social plugins on this webpage.
+            version: FacebookVersion // Use this Graph API version for this call.
+        });
+        checkLoginState();
+    }
+}
+
 
 function fbLogin() {
     FB.login(function(response) {
