@@ -1,6 +1,6 @@
 const H5Url = 'https://www.dominogaming.net/game/';
 const DownloadAndroidUrl = 'https://dl.dominogaming.net/domino.apk';
-const FacebookAPPId = '912378863044075';
+const FacebookAPPId = '912378863044075'; //自己的912378863044075 //629934927889653
 const FacebookVersion = 'v12.0';
 const PartnerID = '30002';
 const Version = '1';
@@ -10,6 +10,16 @@ $(document).ready(function() {
     $('.fb-login-button').hide();
     $('.logged').hide();
 
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: FacebookAPPId,
+            cookie: true, // Enable cookies to allow the server to access the session.
+            xfbml: true, // Parse social plugins on this webpage.
+            version: FacebookVersion // Use this Graph API version for this call.
+        });
+
+        checkLoginState();
+    };
 });
 
 $(window).load(function() {
@@ -74,19 +84,7 @@ function checkLoginState() { // Called when a person is finished with the Login 
 }
 
 
-window.fbAsyncInit = function() {
-    FB.init({
-        appId: FacebookAPPId,
-        cookie: true, // Enable cookies to allow the server to access the session.
-        xfbml: true, // Parse social plugins on this webpage.
-        version: FacebookVersion // Use this Graph API version for this call.
-    });
 
-
-    FB.getLoginStatus(function(response) { // Called after the JS SDK has been initialized.
-        statusChangeCallback(response); // Returns the login status.
-    });
-};
 
 function h5Url() {
     window.location.href = H5Url;
