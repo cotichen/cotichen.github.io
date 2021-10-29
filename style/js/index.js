@@ -9,11 +9,13 @@ const RegisterUrl = 'https://domino.ss2007.com:8088/hall/register';
 $(document).ready(function() {
     $('.fb-login-button').show();
     $('.logged').hide();
+    $('.loader-wrapper').hide();
+    $('html, section').css('visibility', 'visible');
 });
 
 $(window).load(function() {
-    $('.loader-wrapper').hide();
-    $('html, section').css('visibility', 'visible');
+    // $('.loader-wrapper').hide();
+    // $('html, section').css('visibility', 'visible');
 });
 
 
