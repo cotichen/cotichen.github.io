@@ -3,12 +3,18 @@
 	<head>
 		<meta name="google-signin-scope" content="profile email">
  <meta name="google-signin-client_id" content="375364191119-t83faenejt5uiqvu84hqm8vmah5egjah.apps.googleusercontent.com">
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
+	
+		
 	</head>
 	<body>
 		<!-- The sign-in button -->
 		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-		<!-- Sign-in script -->
+
+	
+	
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+		
+				<!-- Sign-in script -->
 		<script>
 			function onSignIn(googleUser)
 			{
@@ -27,5 +33,5 @@
 				xhr.send('idToken=' + idToken);
 			}
 		</script>
-	</body>
+		</body>
 </html>
