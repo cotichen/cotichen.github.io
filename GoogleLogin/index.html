@@ -1,26 +1,44 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="google-signin-scope" content="131788201485">
-    <meta name="google-signin-client_id" content="131788201485-fociv64655vkma424qfje4ppq0ptkh2o.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-  </head>
-  <body>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<title>Google Sign In App</title>
+	<meta name="google-signin-client_id" content="131788201485-fociv64655vkma424qfje4ppq0ptkh2o.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="js/script.js"></script>
+	<style>
+		.g-signin2{
+			margin-left: 500px;
+			margin-top: 200px;
+		}
+		.data{
+			display: none;
+		}
+	</style>
+	<script>
+		function initMap()
+		{
+			var location={lat: -25.363, lng: 131.044};
+			var map=new google.maps.Map(document.getElementById("map"),{
+				zoom: 4,
+				center: location
+			});
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/js?key="></script>
+</head>
+<body>
+	<div id="map"></div>
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<div class="data">
+		<p>Profile</p>
+		<img id="pic" class="img-circle" width="100" height="100">
+		<p>Email</p>
+		<p id="email" class="alert alert-danger"></p>
+		<button onclick="signOut()" class="btn btn-danger">SignOut</button>
+	</div>
+	<iframe src="https://www.google.com/maps/embed?pb=" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</body>
 </html>
