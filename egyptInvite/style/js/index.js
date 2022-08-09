@@ -1,6 +1,6 @@
 const H5Url = "#";
 const DownloadAndroidUrl = "https://play.google.com/store/apps/details?id=com.ssegypt.game";
-const FacebookAPPId = "25402812241931"; //1104460120167765
+const FacebookAPPId = "625402812241931"; //1104460120167765
 const FacebookVersion = "v12.0";
 const PartnerID = "30002";
 const Version = "1";
