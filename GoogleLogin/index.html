@@ -7,26 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/api.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <meta name="google-signin-client_id" content="375364191119-t83faenejt5uiqvu84hqm8vmah5egjah.apps.googleusercontent.com">
     <title>Document</title>
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
+     <div class="google-login-button login-button">
+                    <div id="g_id_onload"
+                        data-client_id="131788201485-fociv64655vkma424qfje4ppq0ptkh2o.apps.googleusercontent.com"
+                        data-context="signin" data-callback="GoogleAPI" data-nonce="" data-auto_select="false">
+                    </div>
+
+                    <div id="g_id_signin" class="g_id_signin" data-type="standard" data-shape="pill"
+                        data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="right"
+                        data-width="250">
+                    </div>
+                    <div id="g_id_onload"
+                        data-client_id="131788201485-fociv64655vkma424qfje4ppq0ptkh2o.apps.googleusercontent.com"
+                        data-callback="handleCredentialResponse">
+                    </div>
+                </div>
     <script>
-        function onSignIn(googleUser) {
-            console.log('User signed In.');
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-            console.log('User signed out.');
+        function handleCredentialResponse (response) {
+            // decodeJwtResponse() is a custom function defined by you
+            // to decode the credential response.
+            const responsePayload = decodeJwtResponse(response.credential);
+
+            console.log("ID: " + responsePayload.sub);
+            console.log('Full Name: ' + responsePayload.name);
+            console.log('Given Name: ' + responsePayload.given_name);
+            console.log('Family Name: ' + responsePayload.family_name);
+            console.log("Image URL: " + responsePayload.picture);
+            console.log("Email: " + responsePayload.email);
+        }
+        
+        function GoogleAPI(authResponse) {
+    // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    if (!authResponse) {
+        return;
+    }
+    let clientId = authResponse.clientId;
+    let accessToken = authResponse.credential;
+    if (!accessToken) {
+        return;
+    }
+    //调用接口
+    var apiUrl = `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${accessToken}`;
+    $.ajax({
+        type: "post", //使用提交的方法 post、get
+        url: apiUrl, //提交的地址
+        data: null, //数据
+        async: true, //配置是否异步操作
+        dataType: "json", //返回数据类型的格式
+        complete: function (XMLHttpRequest, textStatus) {
+            var result = null;
+            try {
+                result = eval("(" + XMLHttpRequest.responseText + ")");
+            } catch (e) {
+                alert("فشل ف الاتصال: " + e.message);
+                return;
+            }
+            if (!result) {
+                alert("عندما تفشل قاعدة بيانات الربط ستظهر رسالة فشل ف الاتصال");
+                return;
+            }
+            console.log("result =", result);
+            let imei = "gg." + result.sub; //V1/V2是user_id
+            let nickname = result.name;
+            let headImg = result.picture;
+        },
     });
+}
   }
     </script>
 </body>
