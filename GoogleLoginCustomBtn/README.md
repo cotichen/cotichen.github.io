@@ -1,5 +1,10 @@
 # google-signin-demo
 Google login demo using gapi
+//域名需要加白名单
+//谷歌云地址
+https://console.cloud.google.com/ 
+//在凭据里面的 已获授权的 JavaScript 来源 
+需要添加域名
 
 ## Installation
 ```javascript
