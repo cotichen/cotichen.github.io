@@ -1,0 +1,123 @@
+<!-- <html>
+<head>
+  <meta name="google-signin-client_id" content="131788201485-fociv64655vkma424qfje4ppq0ptkh2o.apps.googleusercontent.com">
+      <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+ <div class="g-signin2" data-width="300" data-height="200" data-longtitle="true">
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
+ -->
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <script src="https://apis.google.com/js/api:client.js"></script>
+  <script>
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '131788201485-fociv64655vkma424qfje4ppq0ptkh2o.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+        plugin_name: 'streamy',
+        scope: 'email',
+      });
+      attachSignin(document.getElementById('customBtn'));
+       attachSignin(document.getElementById('customBtn1'));
+    });
+  };
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          console.log('登录成功:googleUser',googleUser)
+          document.getElementById('name').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+  </script>
+  <style type="text/css">
+    .customGPlusSignIn {
+      display: inline-block;
+      background: white;
+      color: #444;
+      width: 190px;
+      border-radius: 5px;
+      border: thin solid #888;
+      box-shadow: 1px 1px 1px grey;
+      white-space: nowrap;
+    }
+     .customGPlusSignIn:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 42px;
+      padding-right: 42px;
+      font-size: 14px;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+#customBtn1{
+    cursor:pointer;}
+  </style>
+  </head>
+  <body>
+  <!-- In the callback, you would hide the gSignInWrapper element on a
+  successful sign in -->
+  <div id="gSignInWrapper">
+    <span class="label">Sign in with:</span>
+    <div id="customBtn" class="customGPlusSignIn">
+      <span class="icon"></span>
+     
+      <span class="buttonText">Google</span>
+    </div>
+ <div id="customBtn1" >
+        <img src="style/images/Google-btn.png" alt="">
+    </div>
+
+  </div>
+  <div id="name"></div>
+  <script>startApp();</script>
+</body>
+</html>
