@@ -64,14 +64,33 @@
 
     <!-- The JS SDK Login Button -->
 
+
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
 
+   <div class="login-button">
+                    <div onclick="fbLogin()" class="fb-login-button" data-width="200" data-size="large"
+                        data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false"
+                        data-use-continue-as="true"></div>
+                </div> 
+                <div class="login-button">
+                    <a href="javascript:fbLogin();">
+                        <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
+                            data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                    </a>
+                </div>
     <div id="status">
     </div>
 
     <!-- Load the JS SDK asynchronously -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+
+
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=625402812241931&autoLogAppEvents=1" nonce="lqQnZGXu"></script>
+        <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true"></div>
+</div>
 </body>
 
 </html>
