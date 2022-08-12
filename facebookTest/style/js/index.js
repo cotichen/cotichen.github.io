@@ -77,6 +77,11 @@ function checkLoginState() {
     });
 }
 
+FB.getLoginStatus(function (response) {
+    // Called after the JS SDK has been initialized.
+    statusChangeCallback(response); // Returns the login status.
+});
+
 function h5Url() {
     window.location.href = H5Url;
 }
