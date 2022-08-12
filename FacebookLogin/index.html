@@ -18,7 +18,12 @@
                     'into this webpage.';
             }
         }
-
+        
+        function fbLogin() {
+            FB.login(function (response) {
+                statusChangeCallback(response); // Returns the login status.
+            });
+        }
 
         function checkLoginState() { // Called when a person is finished with the Login Button.
             FB.getLoginStatus(function(response) { // See the onlogin handler
@@ -59,14 +64,16 @@
                     'Thanks for logging in, ' + response.name + '!';
             });
         }
+
     </script>
 
 
     <!-- The JS SDK Login Button -->
 
 
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
+<!--     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+
+    </fb:login-button> -->
 
    <div class="login-button">
                     <div onclick="fbLogin()" class="fb-login-button" data-width="200" data-size="large"
@@ -87,9 +94,9 @@
 
 
 
-        <div id="fb-root"></div>
+<!--         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=625402812241931&autoLogAppEvents=1" nonce="lqQnZGXu"></script>
-        <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true"></div>
+        <div class="fb-login-button" data-width="200" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true"></div> -->
 </div>
 </body>
 
