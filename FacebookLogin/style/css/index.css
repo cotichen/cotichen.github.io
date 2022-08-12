@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 7.2rem;
+    height: 15.59rem;
+    background: url('../images/bg.jpg') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    font-size: .14rem;
+    position: relative;
+}
