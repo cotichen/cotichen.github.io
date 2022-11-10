@@ -5,7 +5,7 @@ const FacebookUrl = "https://www.facebook.com/profile.php?id=100086295793404";
 const Currency = "EGP";
 const DownloadIOSUrl = "#";
 const DownloadAndroidUrl = "https://play.google.com/store/apps/details?id=cyou.metagame.game";
-const GoogleClientId = "592122274214-1ok9u791lktfirou68afp0e8batbmldr.apps.googleusercontent.com";
+const GoogleClientId = "375364191119-t83faenejt5uiqvu84hqm8vmah5egjah.apps.googleusercontent.com";
 const FacebookAPPId = "773894450573235";
 const FacebookVersion = "v12.0";
 const PartnerID = "30002";
