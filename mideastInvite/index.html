@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en_US">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="facebook-domain-verification" content="3xmplsui0oqw3c4fjqzb42inlbt9u5" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title> mlkpoker - www.mlkpoker.com</title>
+
+    <meta name="description" content="mlkpoker,Domino,ludo。" />
+    <meta name="keywords" content="mlkpoker,Domino,ludo。" />
+    <meta property="og:title"
+        content="الكثير من اللاعبين علي اتصال الان  ،يمكن  التنافس على نفس الشاشة ، مجموعة متنوعة من اللعب في انتظارك لتجربتها" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="//www.mlkpoker.com/invite/style/images/swiper/1.jpg" />
+
+    <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/css/swiper-4.2.2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="style/css/common.css">
+    <link rel="stylesheet" type="text/css" href="style/css/index.css">
+    <script type="text/javascript">
+        (function (pw, ph) {
+            function setFontSize () {
+                var dw = pw;
+                var docEle = document.documentElement;
+                var cw = docEle.clientWidth || document.body.clientWidth;
+                var ch = docEle.clientHeight || document.body.clientHeight;
+                if (cw > ch) {
+                    var dh = ph || 720;
+                    var realw = Math.ceil((dh / ch) * cw);
+                    dw = realw > dw ? realw : dw;
+                }
+                cw = cw > dw ? dw : cw;
+                var fz = (cw / dw) * 100;
+                docEle.style.fontSize = fz + "px";
+                var realfz = ~~(+window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.replace("px",
+                    "") * 10000) / 10000;
+                if (fz !== realfz) {
+                    docEle.style.fontSize = fz * (fz / realfz) + "px";
+                }
+            }
+
+            setFontSize();
+
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+                setTimeout(function () {
+                    setFontSize();
+                }, 300);
+            });
+        })(720);
+    </script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- 底部 -->
+        <div class="g-footer">
+            <div class="icons">
+                <div class="icon-item">
+                    <a class="icon-telegram" onclick="window.open(`${TelegramUrl}`)"></a>
+                    <a class="icon-whatsapp" onclick="window.open(`${WhatsappUrl}`)"></a>
+                    <a class="icon-facebook" onclick="window.open(`${FacebookUrl}`)"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-wrap">
+            <div class="top-wrap">
+                <div class="buttons-wrap">
+                    <!-- google play下载 -->
+                    <a class="btn logged btn-googleplay-download" href="#" id="googleDown"></a>
+
+                    <a class="btn logged btn-recharge" href="recharge.html">
+                        <!-- <span class="cornor-recharge-5"></span> -->
+                    </a>
+                    <!-- The JS SDK Login Button -->
+                    <div class=" login-button">
+                        <div class="fb-login-button" data-width="545" data-size="large" data-button-type="login_with"
+                            data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"
+                            onlogin="Index.checkLoginState();"></div>
+                    </div>
+                    <!-- The JS SDK Google Login Button -->
+                    <div class=" login-button">
+                        <div class="google-login-button  ">
+                            <div id="g_id_onload" data-client_id="" data-context="signin"
+                                data-callback="Index.GoogleAPI" data-nonce="" data-auto_select="false">
+                            </div>
+
+                            <div id="g_id_signin" class="g_id_signin" data-type="standard" data-shape="pill"
+                                data-theme="outline" data-text="signin_with" data-size="large"
+                                data-logo_alignment="right" data-width="545">
+                            </div>
+                            <div id="g_id_onload" data-client_id="" data-callback="handleCredentialResponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- swiper -->
+
+            <div class="swiper-title">
+                <img class="swiper-title__img" src="style/images/swiper/title.png" alt="ﺔﺷﺎﺸﻟﺍ ﺕﺎﻄﻘﻟ ﺕﺍﺭﺎﺘﺨﻣ">
+            </div>
+            <div class="swiper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="style/images/swiper/1.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/2.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/3.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/4.jpg"></div>
+                        <div class="swiper-slide"><img src="style/images/swiper/5.jpg"></div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 操作提示 -->
+    <div class="modal" style="display: none;" id="operator-tips-modal">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-info">
+            <div class="modal-header">
+                <button class="btn btn-close" onclick="PageCommon.closeModal('#operator-tips-modal')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pay-tips-wrap">
+                    <div class="pay-tips" style="text-align: center;margin: 0 0.2rem;">
+                        <p class="title">
+                            <img class="icon-status" src="">
+                            <span class="title-status"></span>
+                        </p>
+                        <p class="text">ﻡﺪﺨﺘﺴﻤﻠﻟ ﺢﻴﺤﺻ IDﻢﻗﺭ ﻝﺎﺧﺩﺇ ﺀﺎﺟﺮﺑ</p>
+                    </div>
+                    <div class="modal-actions" style="margin-top:0.5rem;">
+                        <button class="btn btn-confirm"
+                            onclick="PageCommon.closeModal('#operator-tips-modal')"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="style/js/swiper-4.2.2.min.js"></script>
+    <script type="text/javascript" src="style/js/config.js"></script>
+    <script type="text/javascript" src="style/js/page.common.js"></script>
+    <script type="text/javascript" src="style/js/request.common.js"></script>
+    <script type="text/javascript" src="style/js/index.js?v=20220809"></script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Load the JS SDK asynchronously -->
+
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js?d=" + new Date().toISOString();
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        Index.initializeFacebookSdk();
+    </script>
+
+    <script>
+        function handleCredentialResponse (response) {
+            // decodeJwtResponse() is a custom function defined by you
+            // to decode the credential response.
+            const responsePayload = decodeJwtResponse(response.credential);
+
+            console.log("ID: " + responsePayload.sub);
+            console.log('Full Name: ' + responsePayload.name);
+            console.log('Given Name: ' + responsePayload.given_name);
+            console.log('Family Name: ' + responsePayload.family_name);
+            console.log("Image URL: " + responsePayload.picture);
+            console.log("Email: " + responsePayload.email);
+        }
+        function getGoogleClientId () {
+            return GoogleClientId;
+        }
+    </script>
+
+    <div id="fb-root"></div>
+</body>
+
+</html>

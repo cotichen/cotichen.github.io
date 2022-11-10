@@ -1,0 +1,580 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 0.2rem;
+    line-height: 1;
+    color: #333;
+    background-color: #fff;
+    word-break: normal;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: none;
+    word-wrap: break-word;
+    word-break: keep-all;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    cursor: default;
+}
+*,
+::after,
+::before {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden],
+template {
+    display: none;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+a {
+    background: 0 0;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #08c;
+}
+a:active {
+    outline: 0;
+}
+a:active {
+    color: inherit;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+b,
+strong {
+    font-weight: 700;
+}
+dfn {
+    font-style: italic;
+}
+mark {
+    background: #ff0;
+    color: #000;
+}
+small {
+    font-size: 80%;
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+hr {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+pre {
+    overflow: auto;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+button {
+    padding: 0;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    overflow: visible;
+}
+button,
+select {
+    text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+input {
+    line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+legend {
+    border: 0;
+    padding: 0;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+optgroup {
+    font-weight: 700;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td,
+th {
+    padding: 0;
+}
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+}
+blockquote,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+dd,
+dl,
+li,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+ol,
+ul {
+    list-style: none outside none;
+}
+h1,
+h2,
+h3 {
+    line-height: 2;
+    font-weight: 400;
+}
+h1 {
+    font-size: 1.8rem;
+}
+h2 {
+    font-size: 1.6rem;
+}
+h3 {
+    font-size: 1.4rem;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    color: #ccc;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #ccc;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+.fl,
+.fr {
+    display: inline;
+    float: left;
+}
+.fr {
+    float: right;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.h-100 {
+    height: 100% !important;
+}
+.copy {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    user-select: text !important;
+}
+.btn {
+    cursor: pointer;
+}
+.btn:active {
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    transform: scale(0.95);
+}
+.direction-ltr {
+    direction: ltr !important;
+}
+.wrapper {
+    position: relative;
+    width: 7.2rem;
+    margin: 0 auto;
+}
+
+.icon-facebook {
+    display: inline-block;
+    width: 0.64rem;
+    height: 0.64rem;
+    background: url(../images/fackbook.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: 1rem;
+}
+.icon-whatsapp {
+    display: inline-block;
+    width: 0.64rem;
+    height: 0.64rem;
+    background: url(../images/whatsapp.png) no-repeat;
+    background-size: 100% 100%;
+}
+.icon-telegram {
+    display: inline-block;
+    width: 0.64rem;
+    height: 0.64rem;
+    background: url(../images/telegram.png) no-repeat;
+    background-size: 100% 100%;
+    margin-left: 1rem;
+}
+
+.icon-tips {
+    display: inline-block;
+    width: 0.58rem;
+    height: 0.58rem;
+    background: url(../images/recharge/tip_icon.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.btn-back {
+    display: inline-block;
+    width: 0.58rem;
+    height: 0.58rem;
+    background: url(../images/recharge/back_btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+.btn-close {
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.48rem;
+    background: url(../images/recharge/close-btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+.btn-back-home,
+.btn-confirm,
+.btn-no-pay,
+.btn-paid {
+    display: inline-block;
+    width: 1.98rem;
+    height: 0.73rem;
+}
+.btn-confirm {
+    background: url(../images/recharge/btn_confirm.png) no-repeat;
+    background-size: 100% 100%;
+}
+.btn-back-home {
+    background: url(../image/btn_back_home.png) no-repeat;
+    background-size: 100% 100%;
+}
+.btn-no-pay {
+    background: url(../image/btn_no_pay.png) no-repeat;
+    background-size: 100% 100%;
+}
+.btn-paid {
+    background: url(../image/btn_paid.png) no-repeat;
+    background-size: 100% 100%;
+}
+.g-top {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 50%;
+    width: 7.2rem;
+    height: 0.98rem;
+    margin-left: -3.6rem;
+    background-size: 100% 100%;
+}
+
+.g-header {
+    position: relative;
+}
+.g-header .btn-back {
+    position: absolute;
+    top: 0.21rem;
+    right: 0.38rem;
+}
+.g-header-title {
+    text-align: center;
+}
+.g-header-title img {
+    height: 0.95rem;
+}
+.g-footer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    width: 7.2rem;
+    height: 0.98rem;
+    background-size: 100% 100%;
+}
+.g-footer .icons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    height: 0.62rem;
+    width: 7.2rem;
+    justify-content: center;
+}
+.g-footer .icons .icon-item:not(:last-child) {
+    margin-right: 0.22rem;
+}
+.g-footer .service {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    font-size: 0.3rem;
+    color: #ead6a1;
+}
+.g-footer .service .icon-service {
+    margin-left: 0.2rem;
+}
+.g-footer .service__inner {
+    display: inline-block;
+}
+.g-center-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+}
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.modal-mask {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-dialog {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 6.72rem; /* margin: 50% auto 0; */
+    padding: 0.21rem 0.2rem 0.2rem 0.21rem;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.modal-dialog-guide {
+    height: 11.82rem;
+    background: url(../images/recharge/guide-popup-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+.modal-dialog-confirm {
+    height: 6.92rem;
+    background: url(../images/recharge/confirm-popup-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+.modal-dialog-info {
+    height: 4.32rem;
+    background: url(../images/recharge/popup-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+.modal-header {
+    position: relative;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    min-height: 0.86rem;
+}
+.modal-header .btn-close {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.22rem;
+}
+.modal-title {
+    padding: 0.26rem 0 0.2rem;
+    text-align: center;
+}
+.modal-title__img {
+    height: 0.4rem;
+}
+.modal-body {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    min-height: 0;
+    font-size: 0.3rem;
+    line-height: 1.4;
+    color: #fbeb99;
+}
+.modal-body .tips-contact-service {
+    display: block;
+    font-size: 0.2rem;
+    color: #dbba80;
+    text-align: center;
+    text-decoration: underline;
+}
+.modal-body .tips-contact-service .icon-service-small {
+    margin-left: 0.1rem;
+    vertical-align: middle;
+}
+.modal-actions {
+    font-size: 0;
+    text-align: center;
+}
+.modal-actions .btn {
+    margin: 0 0.16rem;
+}

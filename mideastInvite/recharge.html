@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en_US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title> Domino - meweb.metagame.cyou</title>
+    <link rel="stylesheet" type="text/css" href="style/css/swiper-4.2.2.min.css">
+    <link rel="stylesheet" type="text/css" href="style/css/common.css">
+    <link rel="stylesheet" type="text/css" href="style/css/recharge.css">
+    <link rel="stylesheet" type="text/css" href="style/css/loading.css">
+    <script type="text/javascript">
+        (function (pw, ph) {
+            function setFontSize () {
+                var dw = pw;
+                var docEle = document.documentElement;
+                var cw = docEle.clientWidth || document.body.clientWidth;
+                var ch = docEle.clientHeight || document.body.clientHeight;
+                if (cw > ch) {
+                    var dh = ph || 720;
+                    var realw = Math.ceil((dh / ch) * cw);
+                    dw = realw > dw ? realw : dw;
+                }
+                cw = cw > dw ? dw : cw;
+                var fz = (cw / dw) * 100;
+                docEle.style.fontSize = fz + "px";
+                var realfz = ~~(+window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.replace("px",
+                    "") * 10000) / 10000;
+                if (fz !== realfz) {
+                    docEle.style.fontSize = fz * (fz / realfz) + "px";
+                }
+            }
+
+            setFontSize();
+
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+                setTimeout(function () {
+                    setFontSize();
+                }, 300);
+            });
+        })(720);
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部 -->
+        <div class="g-top">
+            <div class="g-header">
+                <a class="btn btn-back" href="index.html"></a>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="g-footer">
+            <div class="icons">
+                <div class="icon-item">
+                    <a class="icon-telegram" onclick="window.open(`${TelegramUrl}`)"></a>
+                    <a class="icon-whatsapp" onclick="window.open(`${WhatsappUrl}`)"></a>
+                    <a class="icon-facebook" onclick="window.open(`${FacebookUrl}`)"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="recharge-wrap">
+            <div class="recharge-top">
+                <div class="recharge-form">
+                    <div class="recharge-form-item">
+                        <div class="recharge-form-item__label">
+                            <img src="style/images/recharge/input_desc.png" alt="ID">
+                        </div>
+                        <div class="recharge-form-item__content">
+                            <div class="recharge-input">
+                                <input type="text" class="recharge-input__inner direction-ltr"
+                                    placeholder="ID برجاء إدخال رقم " id="userId">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips">
+                    قم بالنقر على صورة الملف الشخصي لفحص رقم ID،قم بنسخ ولصق رقم ID او إدخالة يدويا مثال(123456)
+                </div>
+            </div>
+
+            <div id="recharge-content" class="recharge-content">
+                <div id="recharge-scroll" class="recharge-scroll active">
+                    <div class="project-list" id="project-list-money">
+                    </div>
+                </div>
+                <div id="recharge-scroll-diamon" class="recharge-scroll">
+                    <div class="project-list" id="project-list-diamon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 充值确认 -->
+    <div class="modal" style="display: none;" id="infull-confirm-modal">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-confirm">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <img src="style/images/recharge/guide/modal_recharge_confirm_title.png" alt=" ﺀﺍﺮﺸﻟﺍ ﺔﻴﻠﻤﻋ ﻞﻴﺻﺎﻔﺗ"
+                        class="modal-title__img">
+                </div>
+                <button class="btn btn-close" onclick="PageCommon.closeModal('#infull-confirm-modal')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="order-info-wrap">
+                    <div class="order-info">
+                        <div class="order-line">
+                            <div class="order-line__label">
+                                رقم ID للاعب <span>:</span>
+                            </div>
+                            <div class="order-line__content" id="userIdShow">
+                            </div>
+                        </div>
+                        <div class="order-line">
+                            <div class="order-line__label">
+                                أسم اللاعب<span>:</span>
+                            </div>
+                            <div class="order-line__content" id="userNameShow">
+                            </div>
+                        </div>
+                        <div class="order-line">
+                            <div class="order-line__label" id="dimondDesc">
+                                كمية الذهب<span>:</span>
+                            </div>
+                            <div class="order-line__content">
+                                <sapn id="numShow"></sapn>
+                            </div>
+                        </div>
+                        <div class="order-line">
+                            <div class="order-line__label">
+                                قيمة الشحن<span>:</span>
+                            </div>
+                            <div class="order-line__content" id="priceShow">
+                            </div>
+                        </div>
+                        <div class="order-line">
+                            <div class="order-line__label" id="dimondDesc2">
+
+                            </div>
+                            <div class="order-line__content" id="numWithFreeShow">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-tips">برجاء التحقق من رقم ID الذى تم إدخالة لا يوجد به اخطاء
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn btn-confirm" onclick="Recharge.confirmSubmit()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 支付详情 -->
+    <div class="modal" style="display: none;" id="pay-detail-modal">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-info">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <img src="style/images/recharge/guide/modal_pay_detail_title.png" alt=" ﻊﻓﺪﻟﺍ ﻞﻴﺻﺎﻔﺗ"
+                        class="modal-title__img">
+                </div>
+                <button class="btn btn-close" onclick="PageCommon.closeModal('#pay-detail-modal')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pay-detail">
+                    <p>يرجي تجنب غلق الصفحة قبل اتمام الدفع</p>
+                    <p>عقب الانتهاء من الدفع انقر على استمرار</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-paid" onclick="Recharge.checkOrderState()"></button>
+                    <button class="btn btn-no-pay" onclick="PageCommon.closeModal('#pay-detail-modal')"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 支付结果返回页 -->
+    <div class="modal" style="display: none;" id="payWaitModal">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-info">
+            <div class="modal-body">
+                <div class="g-center-box h-100">
+                    <p>برجاء تجنب الخروج من الصفحة</p>
+                    <p>جاري معالجة الشراء، يرجي الانتظار</p>
+                    <p class="time-count">(60)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 支付成功提示 -->
+    <div class="modal" style="display: none;" id="pay-success">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-info">
+            <div class="modal-header">
+                <button class="btn btn-close" onclick="PageCommon.closeModal('#pay-success')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pay-tips-wrap">
+                    <div class="pay-tips pay-tips--success">
+                        <p>تم تأكيد نتيجة الشراء، برجاء تسجيل الدخول</p>
+                        <p>لحسابك بعد قليل للتحقق من نتيجة الشراء</p>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-back-home" onclick="window.location.href=''"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 支付失败提示 -->
+    <div class="modal" style="display: none;" id="pay-error">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-info">
+            <div class="modal-header">
+                <button class="btn btn-close" onclick="PageCommon.closeModal('#pay-error')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pay-tips-wrap">
+                    <div class="pay-tips">
+                        <p>لا يوجد عمليات دفع حالياً </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 操作提示 -->
+    <div class="modal" style="display: none;" id="operator-tips-modal">
+        <div class="modal-mask"></div>
+        <div class="modal-dialog modal-dialog-info">
+            <div class="modal-header">
+                <button class="btn btn-close" onclick="PageCommon.closeModal('#operator-tips-modal')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pay-tips-wrap">
+                    <div class="pay-tips">
+                        <p>ﻡﺪﺨﺘﺴﻤﻠﻟ ﺢﻴﺤﺻ IDﻢﻗﺭ ﻝﺎﺧﺩﺇ ﺀﺎﺟﺮﺑ</p>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-confirm"
+                            onclick="PageCommon.closeModal('#operator-tips-modal')"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading loading-none" onclick="Recharge.loadingToggle()">
+        <div class="loading-img">
+            <img src="style/images/Loading.png" />
+        </div>
+    </div>
+    <script type="text/javascript" src="style/js/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript" src="style/js/page.common.js"></script>
+    <script type="text/javascript" src="style/js/config.js"></script>
+    <script type="text/javascript" src="style/js/request.common.js"></script>
+    <script type="text/javascript" src="style/js/recharge.js"></script>
+
+</body>
+
+</html>
